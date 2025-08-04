@@ -1,6 +1,8 @@
 # GeradorCertificado
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.6.
+## Creator note
+
+This is just for testing purposes. I'm not worrying about commented codes or architectural issues. Here I'm taking my first steps in the Angular's world.
 
 ## Development server
 
