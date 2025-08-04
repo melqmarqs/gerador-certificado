@@ -1,0 +1,71 @@
+.body {
+  width: 70%;
+  padding: 32px;
+}
+
+.lista-atividades {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+
+  .item {
+    border-bottom: 1px solid #E2E8F0;
+    cursor: pointer;
+    padding: 2px 5px;
+    height: 35px;
+  }
+
+  .item:hover {
+    font-weight: 500;
+
+    i {
+      color: red;
+      cursor: pointer;
+    }
+  }
+
+  .item:last-child {
+    border-bottom: 0;
+  }
+
+  i {
+    padding: 1px 2px;
+  }
+}
+
+.body,
+.lista-atividades {
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+}
+
+.lista {
+  margin-top: 10px;
+
+  .header-lista {
+    width: fit-content;
+  }
+}
+
+div.custom-input-group:has(.group-error) .form-label,
+div.custom-input-group:has(.group-error) input,
+.group-error {
+  color: #D71D1D;
+  border-color: #D71D1D;
+}
+
+@media (width <= 900px) {
+  .body {
+    width: 90%;
+  }
+}
+
+@media (width <= 800px) {
+  .body {
+    width: 100%;
+
+    .input-atividade {
+      flex-grow: 2 !important;
+    }
+  }
+}

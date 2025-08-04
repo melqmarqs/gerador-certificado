@@ -1,0 +1,74 @@
+<form #form="ngForm" novalidate class="d-flex flex-column align-items-center gap-4">
+  <div class="header">
+    <h1 class="header-1 fw-bold">Geração de certificado</h1>
+    <span class="description t-muted">Preencha os dados para gerar um novo certificado</span>
+  </div>
+
+  <div class="body d-flex flex-column gap-2">
+    <h3 class="header-3">Novo certificado</h3>
+    <div class="custom-input-group">
+      <label for="nomeAluno" class="form-label">Nome</label>
+      <input
+        [(ngModel)]="nome.value"
+        #nomeRef="ngModel"
+        required
+        id="nomeAluno"
+        name="nomeAluno"
+        type="text"
+        maxlength="150"
+        class="form-control"
+        placeholder="Nome do aluno">
+
+      @if (nomeRef.invalid && nomeRef.touched && nomeRef.errors?.['required']) {
+        <div class="group-error d-flex flex-row align-items-center gap-1 mt-1">
+          <i class="ph ph-warning-circle"></i>
+          <span class="">O nome do aluno é obrigatório</span>
+        </div>
+      }
+
+    </div>
+
+    <div class="custom-input-group d-flex flex-column align-items-start">
+      <div class="d-flex flex-row align-items-end w-100 gap-2">
+        <div class="input-atividade d-flex flex-column flex-grow-1">
+          <label for="atividadeAluno" class="form-label">Atividade</label>
+          <input
+            [(ngModel)]="atividade.value"
+            #atividadeRef="ngModel"
+            required
+            id="atividadeAluno"
+            name="atividadeAluno"
+            type="text"
+            class="form-control"
+            placeholder="Atividade exercida">
+        </div>
+
+        <app-secondary-button></app-secondary-button>
+      </div>
+
+      @if (atividadeRef.invalid && atividadeRef.touched && atividadeRef.errors?.['required']) {
+        <div class="group-error d-flex flex-row align-items-center gap-1 mt-1">
+          <i class="ph ph-warning-circle"></i>
+          <span class="">O nome do aluno é obrigatório</span>
+        </div>
+      }
+
+    </div>
+
+    <div *ngIf="atividades.length" class="lista">
+      <div class="header-lista">
+        <h3 class="header-3">Lista de atividades</h3>
+      </div>
+      <div class="lista-atividades">
+        @for (atividade of atividades; track atividade.id) {
+          <div class="item d-flex flex-row align-items-center justify-content-between">
+            <span class="form-label m-0">{{atividade.name}}</span>
+            <i class="ph ph-x"></i>
+          </div>
+        }
+      </div>
+    </div>
+
+    <app-primary-button></app-primary-button>
+  </div>
+</form>
