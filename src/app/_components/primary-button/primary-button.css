@@ -7,8 +7,18 @@
   color: #FFF;
   background: linear-gradient(90deg, #1A2856 0%, #334EA9 100%);
   cursor: pointer;
+  width: 100%;
+}
+
+.bold {
+  font-weight: bold;
 }
 
 .custom-button:hover {
   opacity: 90%;
+}
+
+.disabled,
+.disabled:hover {
+  opacity: 50%;
 }

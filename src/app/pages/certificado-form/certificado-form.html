@@ -19,9 +19,9 @@
         class="form-control"
         placeholder="Nome do aluno">
 
-      @if (nomeRef.invalid && nomeRef.touched && nomeRef.errors?.['required']) {
+      @if (campoInvalido(nomeRef)) {
         <div class="group-error d-flex flex-row align-items-center gap-1 mt-1">
-          <i class="ph ph-warning-circle"></i>
+          <i class="{{icon.warningCicle}}"></i>
           <span class="">O nome do aluno é obrigatório</span>
         </div>
       }
@@ -34,8 +34,6 @@
           <label for="atividadeAluno" class="form-label">Atividade</label>
           <input
             [(ngModel)]="atividade.value"
-            #atividadeRef="ngModel"
-            required
             id="atividadeAluno"
             name="atividadeAluno"
             type="text"
@@ -43,16 +41,12 @@
             placeholder="Atividade exercida">
         </div>
 
-        <app-secondary-button></app-secondary-button>
+        <app-secondary-button
+          [texto]="'Incluir atividade'"
+          phClass="{{icon.plus}}"
+          [disabled]="!atividade.value.length">
+        </app-secondary-button>
       </div>
-
-      @if (atividadeRef.invalid && atividadeRef.touched && atividadeRef.errors?.['required']) {
-        <div class="group-error d-flex flex-row align-items-center gap-1 mt-1">
-          <i class="ph ph-warning-circle"></i>
-          <span class="">O nome do aluno é obrigatório</span>
-        </div>
-      }
-
     </div>
 
     <div *ngIf="atividades.length" class="lista">
@@ -63,12 +57,17 @@
         @for (atividade of atividades; track atividade.id) {
           <div class="item d-flex flex-row align-items-center justify-content-between">
             <span class="form-label m-0">{{atividade.name}}</span>
-            <i class="ph ph-x"></i>
+            <i class="{{icon.x}}"></i>
           </div>
         }
       </div>
     </div>
 
-    <app-primary-button></app-primary-button>
+    <app-primary-button
+      class="mt-10"
+      [texto]="'Gerar certificado'"
+      [bold]="true"
+      [disabled]="desabilitarGerarCertificado()">
+    </app-primary-button>
   </div>
 </form>

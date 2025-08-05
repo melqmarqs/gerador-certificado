@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { SecondaryButton } from "../../_components/secondary-button/secondary-button";
 import { PrimaryButton } from "../../_components/primary-button/primary-button";
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgModel } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Icon } from '../../enums/icon';
 
 @Component({
   selector: 'app-certificado-form',
@@ -11,6 +12,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './certificado-form.css'
 })
 export class CertificadoForm {
+  icon = Icon;
   nome: InputModel = { value: '' };
   atividade: InputModel = { value: '' };
   atividades: AtividadeModel[] = [
@@ -23,4 +25,8 @@ export class CertificadoForm {
       name: 'react'
     }
   ]
+
+  campoInvalido = (campo: NgModel) => campo.invalid && campo.touched;
+
+  desabilitarGerarCertificado = () => !this.nome.value.length || !this.atividades.length;
 }

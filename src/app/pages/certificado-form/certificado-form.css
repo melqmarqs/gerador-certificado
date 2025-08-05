@@ -47,6 +47,10 @@
   }
 }
 
+.mt-10 {
+  margin-top: 10px;
+}
+
 div.custom-input-group:has(.group-error) .form-label,
 div.custom-input-group:has(.group-error) input,
 .group-error {

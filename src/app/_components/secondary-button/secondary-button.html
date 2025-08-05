@@ -1,4 +1,7 @@
-<button class="custom-button d-flex align-items-center gap-1 text-capitalize">
-  <i class="ph ph-plus"></i>
-  secondary-button works
+<button
+  *ngIf="texto"
+  [ngClass]="{'disabled': disabled}"
+  class="custom-button d-flex align-items-center gap-1 text-capitalize">
+    <i *ngIf="phClass" class="{{phClass}}"></i>
+    {{texto}}
 </button>
