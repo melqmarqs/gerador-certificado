@@ -36,6 +36,7 @@
             [(ngModel)]="atividade.value"
             id="atividadeAluno"
             name="atividadeAluno"
+            maxlength="50"
             type="text"
             class="form-control"
             placeholder="Atividade exercida">
@@ -44,7 +45,8 @@
         <app-secondary-button
           [texto]="'Incluir atividade'"
           phClass="{{icon.plus}}"
-          [disabled]="!atividade.value.length">
+          [disabled]="!atividade || !atividade.value || !atividade.value.length"
+          (click)="adicionarAtividade()">
         </app-secondary-button>
       </div>
     </div>
@@ -55,7 +57,7 @@
       </div>
       <div class="lista-atividades">
         @for (atividade of atividades; track atividade.id) {
-          <div class="item d-flex flex-row align-items-center justify-content-between">
+          <div class="item d-flex flex-row align-items-center justify-content-between" (click)="removerAtividade(atividade.id)">
             <span class="form-label m-0">{{atividade.name}}</span>
             <i class="{{icon.x}}"></i>
           </div>
@@ -67,7 +69,8 @@
       class="mt-10"
       [texto]="'Gerar certificado'"
       [bold]="true"
-      [disabled]="desabilitarGerarCertificado()">
+      [disabled]="desabilitarGerarCertificado()"
+      (click)="gerarCertificado()">
     </app-primary-button>
   </div>
 </form>

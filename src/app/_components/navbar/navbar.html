@@ -6,18 +6,26 @@
 
     <div class="navbar justify-content-end">
       <ul class="navbar-nav gap-3 d-flex flex-row">
-        <li class="nav-item d-flex align-items-center" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-          <i class="{{icon.medal}}"></i>
-          <a routerLink="/" class="nav-link">
-            Lista de certificados
-          </a>
+        <li
+          class="nav-item d-flex align-items-center"
+          routerLink="/"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }">
+            <i class="{{icon.medal}}"></i>
+            <a class="nav-link">
+              Lista de certificados
+            </a>
         </li>
 
-        <li class="nav-item d-flex align-items-center" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-          <i class="{{icon.circlesThreePlus}}"></i>
-          <a routerLink="certificados/novo" class="nav-link">
-            Gerar certificado
-          </a>
+        <li
+          class="nav-item d-flex align-items-center"
+          routerLink="certificados/novo"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }">
+            <i class="{{icon.circlesThreePlus}}"></i>
+            <a class="nav-link">
+              Gerar certificado
+            </a>
         </li>
       </ul>
     </div>

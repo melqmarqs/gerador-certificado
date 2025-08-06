@@ -5,31 +5,32 @@
   </div>
 
   <div class="body d-flex flex-column align-items-center w-100">
-    <div class="no-content gap-4">
-      <i class="{{icon.certificate}}"></i>
+    @if (certificados.length <= 0) {
+      <div class="no-content gap-4">
+        <i class="{{icon.certificate}}"></i>
 
-      <div class="d-flex flex-column align-items-center">
-        <h3 class="header-3">Nenhum certificado gerado</h3>
-        <span class="description t-muted">Gere certificados para consultar o histórico</span>
+        <div class="d-flex flex-column align-items-center">
+          <h3 class="header-3">Nenhum certificado gerado</h3>
+          <span class="description t-muted">Gere certificados para consultar o histórico</span>
+        </div>
+
+        <app-secondary-button texto="Gerar certificado" routerLink="certificados/novo"></app-secondary-button>
       </div>
+    } @else {
+      <div class="list d-flex flex-column gap-1">
+        @for (cert of certificados; track cert.id) {
+          <app-item-certificado
+            [dataEmissao]="cert.dataEmissao!"
+            [idAluno]="cert.id!"
+            [nomeAluno]="cert.nomeAluno">
+          </app-item-certificado>
+        }
+      </div>
+    }
 
-      <app-secondary-button texto="Gerar certificado" routerLink="certificados/novo"></app-secondary-button>
-    </div>
 
-    <div class="list d-flex flex-column gap-1">
-      <app-item-certificado></app-item-certificado>
-      <app-item-certificado></app-item-certificado>
-      <app-item-certificado></app-item-certificado>
-      <app-item-certificado></app-item-certificado>
-      <app-item-certificado></app-item-certificado>
-      <app-item-certificado></app-item-certificado>
-      <app-item-certificado></app-item-certificado>
-      <app-item-certificado></app-item-certificado>
-      <app-item-certificado></app-item-certificado>
-      <app-item-certificado></app-item-certificado>
-      <app-item-certificado></app-item-certificado>
-      <app-item-certificado></app-item-certificado>
-    </div>
+
+
   </div>
 </div>
 

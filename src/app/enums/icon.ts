@@ -5,5 +5,6 @@ export enum Icon {
   warningCicle= 'ph ph-warning-circle',
   plus= 'ph ph-plus',
   x= 'ph ph-x',
-  certificate= 'ph ph-certificate'
+  certificate= 'ph ph-certificate',
+  download= 'ph ph-download-simple'
 }

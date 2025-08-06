@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { SecondaryButton } from "../secondary-button/secondary-button";
 import { RouterLink } from '@angular/router';
+import { Helper } from '../../../utils/helper';
 
 @Component({
   selector: 'app-item-certificado',
@@ -8,6 +9,14 @@ import { RouterLink } from '@angular/router';
   templateUrl: './item-certificado.html',
   styleUrl: './item-certificado.css'
 })
-export class ItemCertificado {
-  idAluno: number = 10;
+export class ItemCertificado implements OnInit {
+  @Input() nomeAluno: string = '';
+  @Input() dataEmissao: Date = new Date;
+  @Input() idAluno: number = 0;
+
+  dataCert: string = '';
+
+  ngOnInit(): void {
+    this.dataCert = Helper.dateFormatter(this.dataEmissao);
+  }
 }
